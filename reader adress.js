@@ -13,6 +13,21 @@ Meteor.methods({
                 let now = new Date();
                 now.setMinutes(0); 
 
+
+
+                    let transactionsHandle, transactions, transactionsExist;
+    let loading = true;
+    try {
+      if (Meteor.isClient) {
+        transactionsHandle = Meteor.subscribe(
+          "transactions.validator",
+          props.validator,
+          props.delegator,
+          props.limit
+        );
+        loading = !transactionsHandle.ready();
+      }
+
                 if (Meteor.isClient){
                     transactionsHandle = Meteor.subscribe('transactions.validator', props.validator, props.delegator, props.limit);
                     loading = !transactionsHandle.ready();
