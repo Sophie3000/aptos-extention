@@ -5,10 +5,10 @@ import { string } from 'prop-types';
 Meteor.methods({
     'coinStats.getCoinStats': function(){
         this.unblock();
-        let transactionsHandle, transactions, transactionsExist;
+    //    let transactionsHandle, transactions, transactionsExist;
         let loading = true;
-        let coinId = Meteor.settings.public.coingeckoId;
-        if (coinId){
+  //      let coinId = Meteor.settings.public.coingeckoId;
+   //     if (coinId){
             try{
                 let now = new Date();
                 now.setMinutes(0); 
